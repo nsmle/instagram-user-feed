@@ -153,8 +153,6 @@ class Api
         }
 
         $this->session = new Session($cookies);
-
-        return $cookies;
     }
 
     /**
