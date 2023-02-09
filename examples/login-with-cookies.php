@@ -39,7 +39,6 @@ $sessionId = new SetCookie([
     "Discard"  => false,
     "HttpOnly" => true,
 ]);
-
 // Generate CookieJar from instagram cookie 'sessionid'
 $cookieJar = new CookieJar(false, [$sessionId]);
  */
@@ -65,3 +64,23 @@ try {
 } catch (InstagramException $e) {
     print_r($e->getMessage());
 }
+
+
+/** Note :
+ * If you want to save your own cookies manually
+ * you can use the method below
+ */
+ 
+/** login with method loginWithCookies */
+// $newCookieJar = $api->loginWithCookies($cookieJar);
+
+/** Save cookieJar into file */
+// $unixStringForCookieIdentification = $credentials->getLogin(); // can be replaced with any string just for cookie identification
+// $sessionData = $cachePool
+//    ->getItem(Session::SESSION_KEY . '.' . CacheHelper::sanitizeUsername($unixStringForCookieIdentification));
+//     ->set($newCookieJar);
+// $cachePool->save($sessionData);
+
+/** use of cookies in subsequent requests after login with cookies */
+// $api->login($unixStringForCookieIdentification, '');
+// dd($api->getProfile('robertdowneyjr'));
